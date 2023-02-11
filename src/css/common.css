@@ -16,3 +16,52 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.flatpick-input {
+  display: block;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  margin-top: 10px;
+
+  max-width: 700px;
+
+  font-size: 28px;
+  background-color: aqua;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.field {
+  padding: 5px;
+
+  background-color: #7FFFD4;
+  border-radius: 10px;
+  border: 2px solid #212121;
+}
+
+.field + .field {
+  margin-left: 20px;
+}
+
+button {
+  margin-left: 20px;
+
+  width: 100px;
+  height: 35px;
+  color: #fafafa;
+  background-color: #0077A7;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button:disabled {
+  background-color: #fafafa;
+  color: #cbd0d3;
+  border: 2px solid #cbd0d3;
+}
+
