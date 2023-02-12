@@ -29,10 +29,10 @@ function onCreatePromises(evt) {
   const dataParams = {delay, step, amount};
 
   for (let index = 1; index <= amount; index += 1) {
-    dataParams.delay += dataParams.step;
     
     createPromise(index, dataParams.delay).then(onSuccess).catch(onError);
     form.reset();
+    dataParams.delay += dataParams.step;
   };
 };
 
