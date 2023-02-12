@@ -5,9 +5,10 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 
 startBtn.addEventListener('click', onRandomColorStart);
-stopBtn.addEventListener('click', onRandomColorStop);
+stopBtn.addEventListener('click', onColorSwitcherStop);
 
 stopBtn.disabled = true;
+let timerId = null
 
 function onRandomColorStart() {
     timerId = setInterval(() => {
@@ -18,7 +19,7 @@ function onRandomColorStart() {
     stopBtn.disabled = false;
 };
 
-function onRandomColorStop() {
+function onColorSwitcherStop() {
     clearTimeout(timerId);
     startBtn.disabled = false;
     stopBtn.disabled = true;
