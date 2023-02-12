@@ -22,17 +22,15 @@ function createPromise(position, delay) {
 function onCreatePromises(evt) {
   evt.preventDefault();
 
-  const delay = Number(evt.currentTarget.delay.value);
-  const step = Number(evt.currentTarget.step.value);
-  const amount = Number(evt.currentTarget.amount.value);
-
-  const dataParams = {delay, step, amount};
+  let delay = Number(evt.currentTarget.delay.value);
+  let step = Number(evt.currentTarget.step.value);
+  let amount = Number(evt.currentTarget.amount.value);
 
   for (let index = 1; index <= amount; index += 1) {
     
-    createPromise(index, dataParams.delay).then(onSuccess).catch(onError);
+    createPromise(index, delay).then(onSuccess).catch(onError);
     form.reset();
-    dataParams.delay += dataParams.step;
+    delay += step;
   };
 };
 
