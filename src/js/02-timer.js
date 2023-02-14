@@ -3,7 +3,6 @@ import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 import convertMs from './js-modules/convertMs';
 
-
 const refs = {
     startTimerBtn: document.querySelector('[data-start]'),
     timer: document.querySelector('.timer'),
@@ -18,7 +17,7 @@ refs.startTimerBtn.addEventListener('click', onTimerStart);
 refs.startTimerBtn.disabled = true;
 let timerId = null;
 
-const options = {
+flatpickr('#datetime-picker', {
     enableTime: true,
     time_24hr: true,
     defaultDate: Date.now(),
@@ -35,15 +34,19 @@ const options = {
             refs.startTimerBtn.disabled = false;
         };
     },
-};
+});
+
+const fp = document.querySelector('#datetime-picker')._flatpickr;
+// console.log(fp);
 
 function onTimerStart() {
-    const selectedDate = flatpick.selectedDates[0];
+    const selectedDate = fp.selectedDates[0];
+    let isActive = false;
 
-    if (options.isActive) {
+    if (isActive) {
         return;
     } else {
-        options.isActive = true;
+        isActive = true;
         timerId = setInterval(() => {
         const currentDate = Date.now();
         const date = selectedDate - currentDate;
@@ -64,10 +67,3 @@ function updateTimerValue({ days, hours, minutes, seconds }) {
     refs.minValue.textContent = `${minutes}`;
     refs.secValue.textContent = `${seconds}`;
 };
-
-const flatpick = flatpickr('#datetime-picker', options);
-
-
-
-
-
